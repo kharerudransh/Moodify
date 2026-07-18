@@ -1,0 +1,228 @@
+/* ===========================
+   Google Font
+=========================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+/* ===========================
+   Background
+=========================== */
+
+body{
+    min-height:100vh;
+
+    background:
+    linear-gradient(
+        135deg,
+        #000000,
+        #1e293b,
+        #000000
+    );
+
+    color:white;
+}
+
+/* ===========================
+   Main Container
+=========================== */
+
+.container{
+    width:100%;
+    max-width:900px;
+
+    margin:auto;
+
+    padding:40px 20px;
+
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+}
+
+/* ===========================
+   Heading
+=========================== */
+
+.heading{
+
+    font-size:42px;
+    font-weight:700;
+
+    margin-bottom:10px;
+
+    background:linear-gradient(
+        90deg,
+        #60a5fa,
+        #818cf8,
+        #c084fc
+    );
+
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+
+    text-align:center;
+}
+
+.subHeading{
+    
+    color:#94a3b8;
+
+    margin-bottom:35px;
+
+    font-size:20px;
+}
+
+/* ===========================
+   Camera
+=========================== */
+
+.video {
+    width: 650px;
+    max-width: 100%;
+    border-radius: 20px;
+    border: 3px solid #374151;
+
+    transform: scaleX(-1);
+
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.video:hover {
+    transform: scaleX(-1) scale(1.02);
+
+    box-shadow: 0 0 35px rgba(96, 165, 250, 0.35);
+}
+
+/* ===========================
+   Emotion Card
+=========================== */
+
+.result{
+
+    margin-top:30px;
+
+    background:#1e293b;
+
+    padding:20px 40px;
+
+    border-radius:18px;
+
+    box-shadow:
+    0 10px 30px rgba(0,0,0,.3);
+
+    min-width:350px;
+
+    text-align:center;
+}
+
+.emotion{
+
+    font-size:38px;
+
+    font-weight:700;
+
+    margin-bottom:15px;
+}
+
+.confidence{
+
+    color:#cbd5e1;
+
+    font-size:18px;
+
+    margin-bottom:18px;
+}
+
+/* ===========================
+   Progress Bar
+=========================== */
+
+
+
+.progressFill{
+
+    height:100%;
+
+    border-radius:50px;
+
+    background:
+    linear-gradient(
+        90deg,
+        #22c55e,
+        #06b6d4,
+        #3b82f6
+    );
+
+    transition:width .6s ease;
+}
+
+/* ===========================
+   Detect Button
+=========================== */
+
+.detectBtn{
+
+    margin-top:30px;
+
+    border:none;
+
+    padding:15px 35px;
+
+    font-size:18px;
+
+    color:white;
+
+    border-radius:50px;
+
+    cursor:pointer;
+    
+
+    background:
+    linear-gradient(
+        90deg,
+        #2563eb,
+        #7c3aed
+    );
+
+    transition:.35s;
+
+    box-shadow:
+    0 8px 20px rgba(37,99,235,.35);
+}
+
+.detectBtn:hover{
+
+    transform:translateY(-3px);
+
+    box-shadow:
+    0 12px 30px rgba(124,58,237,.45);
+}
+
+.detectBtn:disabled{
+
+    cursor:not-allowed;
+
+    opacity:.6;
+
+    transform:none;
+}
+
+/* ===========================
+   Footer
+=========================== */
+
+.footer{
+
+    margin-top:40px;
+
+    color:#64748b;
+
+    font-size:14px;
+}
