@@ -1,6 +1,7 @@
 const express=require("express");
 const userModel=require("../models/usersModel")
-const authController=require("../controller/auth.controller")
+const authController=require("../controller/auth.controller");
+const authMiddleware=require("../middleware/auth.middleware");
 
 
 const router=express.Router();
@@ -13,4 +14,9 @@ router.post("/register",authController.registerUser);
 //login of user
 router.post("/login",authController.loginUser);
 
+//getMe-->jo bhi user isme request karega ussi ka data idhar return karna hai 
+router.get("/get-Me",authMiddleware.authUser,authController.getMe);
+
+//logout
+router.get("/logout",authMiddleware.authUser,authController.logoutUser);
 module.exports=router;

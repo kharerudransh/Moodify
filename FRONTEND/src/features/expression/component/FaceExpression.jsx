@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import "./FaceExpression.css";
 import { initFaceExpression, detectExpression as runDetection } from "../utils/utils";
 
+
 function FaceExpression() {
   const videoRef = useRef(null);
   const landmarkerRef = useRef(null);

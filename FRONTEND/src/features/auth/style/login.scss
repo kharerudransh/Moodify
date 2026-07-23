@@ -1,0 +1,242 @@
+// login.scss
+
+$bg-dark: #060d16;
+$card-bg: rgba(255, 255, 255, 0.03);
+$border-color: #263241;
+$text-light: #ffffff;
+$text-muted: #9aa6b5;
+$accent-purple: #7F77DD;
+$accent-blue: #378ADD;
+
+.login-page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: $bg-dark;
+  position: relative;
+  overflow: hidden;
+  padding: 2rem;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: -20%;
+    right: -10%;
+    width: 500px;
+    height: 500px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(60, 110, 170, 0.25) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: -20%;
+    left: -10%;
+    width: 400px;
+    height: 400px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(127, 119, 221, 0.15) 0%, transparent 70%);
+    pointer-events: none;
+  }
+}
+
+.form-container {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 400px;
+  background: $card-bg;
+  border: 0.5px solid $border-color;
+  border-radius: 16px;
+  padding: 2.5rem 2rem;
+  backdrop-filter: blur(12px);
+
+  h1 {
+    color: $text-light;
+    font-size: 28px;
+    font-weight: 600;
+    margin-bottom: 8px;
+    text-align: center;
+  }
+
+  p {
+    color: $text-muted;
+    font-size: 14px;
+    text-align: center;
+    margin-bottom: 32px;
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+}
+
+// label + input jo FormGroup return karta hai
+.input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 100%;
+
+  label {
+    color: $text-muted;
+    font-size: 13px;
+    font-weight: 500;
+  }
+
+  input {
+    background: rgba(255, 255, 255, 0.04);
+    border: 0.5px solid $border-color;
+    border-radius: 8px;
+    padding: 12px 14px;
+    color: $text-light;
+    font-size: 14px;
+    outline: none;
+    width: 100%;
+    transition: border-color 0.2s ease, background 0.2s ease;
+
+    &::placeholder {
+      color: #5a6a7d;
+    }
+
+    &:focus {
+      border-color: $accent-blue;
+      background: rgba(55, 138, 221, 0.06);
+    }
+  }
+}
+
+// email row: FaUserAlt icon + FormGroup
+.user-box {
+  position: relative;
+
+  > svg:first-child {
+    position: absolute;
+    left: 14px;
+    bottom: 12px;
+    color: $text-muted;
+    font-size: 16px;
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  .input-group input {
+    padding-left: 38px;
+  }
+}
+
+// password row: icon + label + input + eye toggle, all direct children
+.password-box {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+
+  > svg:first-of-type {
+    position: absolute;
+    left: 14px;
+    bottom: 12px;
+    color: $text-muted;
+    font-size: 16px;
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  label {
+    color: $text-muted;
+    font-size: 13px;
+    font-weight: 500;
+  }
+
+  input {
+    background: rgba(255, 255, 255, 0.04);
+    border: 0.5px solid $border-color;
+    border-radius: 8px;
+    padding: 12px 40px; // left space for lock icon, right space for eye icon
+    color: $text-light;
+    font-size: 14px;
+    outline: none;
+    width: 100%;
+    transition: border-color 0.2s ease, background 0.2s ease;
+
+    &::placeholder {
+      color: #5a6a7d;
+    }
+
+    &:focus {
+      border-color: $accent-blue;
+      background: rgba(55, 138, 221, 0.06);
+    }
+  }
+
+  // eye toggle icon (last svg in the box)
+  > svg:last-of-type {
+    position: absolute;
+    right: 14px;
+    bottom: 12px;
+    color: $text-muted;
+    font-size: 16px;
+    cursor: pointer;
+    z-index: 1;
+
+    &:hover {
+      color: $text-light;
+    }
+  }
+}
+
+button[type="submit"] {
+  margin-top: 12px;
+  background: linear-gradient(135deg, $accent-purple, $accent-blue);
+  color: #fff;
+  border: none;
+  padding: 13px;
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: transform 0.15s ease, opacity 0.2s ease;
+
+  &:hover {
+    opacity: 0.9;
+  }
+
+  &:active {
+    transform: scale(0.98);
+  }
+}
+
+.NewUser {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 20px;
+
+  hr {
+    flex: 1;
+    border: none;
+    border-top: 0.5px solid $border-color;
+  }
+
+  span {
+    color: $text-muted;
+    font-size: 13px;
+    white-space: nowrap;
+  }
+
+  a {
+    color: $accent-blue;
+    font-size: 13px;
+    text-decoration: none;
+    white-space: nowrap;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}

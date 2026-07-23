@@ -1,0 +1,66 @@
+.nav-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 2rem;
+  background: transparent;
+
+  .user-profile {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    color: rgba(255, 255, 255, 0.45);
+    transition: color 0.3s ease;
+
+    svg {
+      font-size: 1.4rem;
+      transition: transform 0.3s ease, color 0.3s ease;
+    }
+
+    p {
+      margin: 0;
+      font-size: 0.95rem;
+      font-weight: 400;
+      letter-spacing: 0.02em;
+    }
+
+    &:hover {
+      color: #ffffff;
+
+      svg {
+        transform: scale(1.1) rotate(-4deg);
+        color: #a78bfa;
+      }
+    }
+  }
+
+  .logout {
+    button {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      background: none;
+      border: none;
+      color: rgba(255, 255, 255, 0.45);
+      font-size: 0.95rem;
+      font-weight: 400;
+      cursor: pointer;
+      padding: 0;
+      transition: color 0.3s ease, letter-spacing 0.3s ease;
+
+      svg {
+        font-size: 1.2rem;
+        transition: transform 0.3s ease;
+      }
+
+      &:hover {
+        color: #f87171;
+        letter-spacing: 0.03em;
+
+        svg {
+          transform: translateX(3px);
+        }
+      }
+    }
+  }
+}

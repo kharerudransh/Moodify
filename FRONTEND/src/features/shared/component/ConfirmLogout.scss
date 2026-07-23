@@ -1,0 +1,76 @@
+.logout-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  animation: overlay-fade 0.2s ease;
+
+  .logout-modal {
+    background: #1a1a24;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    padding: 1.5rem 2rem;
+    text-align: center;
+    min-width: 260px;
+    animation: modal-pop 0.25s ease;
+
+    p {
+      color: #f1f1f1;
+      font-size: 1rem;
+      margin: 0 0 1.2rem;
+    }
+
+    .logout-modal-actions {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+
+      button {
+        padding: 0.5rem 1.4rem;
+        border-radius: 6px;
+        border: none;
+        font-size: 0.9rem;
+        cursor: pointer;
+        transition: opacity 0.2s ease, transform 0.15s ease;
+
+        &:hover {
+          opacity: 0.85;
+        }
+
+        &:active {
+          transform: scale(0.96);
+        }
+      }
+
+      .confirm {
+        background: #f87171;
+        color: #1a1a24;
+        font-weight: 500;
+      }
+
+      .cancel {
+        background: rgba(255, 255, 255, 0.1);
+        color: #f1f1f1;
+      }
+    }
+  }
+}
+
+@keyframes overlay-fade {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes modal-pop {
+  from {
+    opacity: 0;
+    transform: scale(0.92);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
