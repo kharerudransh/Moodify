@@ -10,9 +10,10 @@ const cors=require("cors")
 //Using middleware
 app.use(express.json());
 app.use(cookieParser());
+
 app.use(cors({
-    origin:"http://localhost:5173",
-    credentials:true
+    origin: process.env.CLIENT_URL || "http://localhost:5173",
+    credentials: true
 }));
 
 //Router
