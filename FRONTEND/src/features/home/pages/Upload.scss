@@ -1,0 +1,87 @@
+.upload-container {
+  max-width: 480px;
+  margin: 60px auto;
+  padding: 32px;
+  background: #161b22;
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  color: #fff;
+
+  h1 {
+    font-size: 22px;
+    font-weight: 700;
+    margin-bottom: 24px;
+    background: linear-gradient(90deg, #6366f1, #a855f7);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .uploadSongLabel {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    border: 1px dashed rgba(255, 255, 255, 0.2);
+    border-radius: 12px;
+    cursor: pointer;
+    text-align: center;
+    color: #8b949e;
+    font-size: 14px;
+    transition: border-color 0.2s ease, background 0.2s ease;
+
+    &:hover {
+      border-color: #6366f1;
+      background: rgba(99, 102, 241, 0.08);
+    }
+  }
+
+  audio {
+    width: 100%;
+    border-radius: 8px;
+  }
+
+  .mood {
+    padding: 12px 14px;
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: #0d1117;
+    color: #fff;
+    font-size: 14px;
+    outline: none;
+
+    &:focus {
+      border-color: #6366f1;
+    }
+
+    &::placeholder {
+      color: #8b949e;
+    }
+  }
+
+  button[type="submit"] {
+    padding: 12px;
+    border: none;
+    border-radius: 10px;
+    background: linear-gradient(90deg, #6366f1, #a855f7);
+    color: #fff;
+    font-weight: 600;
+    font-size: 15px;
+    cursor: pointer;
+    transition: opacity 0.2s ease;
+
+    &:hover {
+      opacity: 0.9;
+    }
+
+    &:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+  }
+}

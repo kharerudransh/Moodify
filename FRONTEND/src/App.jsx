@@ -8,13 +8,17 @@ import { appRoutes } from './app.routes'
 import "./features/shared/styles/global.scss"
 import { ToastContainer } from 'react-toastify';
 import { AuthProvider } from './features/auth/auth.context';
+import { SongContextProvider } from './features/home/Song.context';   // ✅ import bhi capital se
+
 function App() {
   return (
     <div className="app-background">
       <AuthProvider>
-        <ToastContainer position="top-right" theme="dark" />
-        <RouterProvider router={appRoutes} />
-      </AuthProvider>
+        <SongContextProvider>   {/* ✅ ab ye REAL component ban jayega, HTML tag nahi */}
+          <ToastContainer position="top-right" theme="dark" />
+          <RouterProvider router={appRoutes} />
+        </SongContextProvider>
+      </AuthProvider> 
     </div>
   )
 }

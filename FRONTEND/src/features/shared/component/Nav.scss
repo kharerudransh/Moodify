@@ -1,26 +1,37 @@
+/* features/shared/component/Nav.scss */
+
 .nav-container {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  padding: 1rem 2rem;
-  background: transparent;
+  gap: 1.2rem;
+  padding: 1rem 3rem;
+  background: rgba(13, 17, 23, 0.75);
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
 
   .user-profile {
     display: flex;
     align-items: center;
     gap: 0.6rem;
-    color: rgba(255, 255, 255, 0.45);
-    transition: color 0.3s ease;
+    color: rgba(255, 255, 255, 0.85);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-right: auto; /* Pushes the navigation actions to the right */
 
     svg {
-      font-size: 1.4rem;
+      font-size: 1.6rem;
+      color: #818cf8;
       transition: transform 0.3s ease, color 0.3s ease;
     }
 
     p {
       margin: 0;
       font-size: 0.95rem;
-      font-weight: 400;
+      font-weight: 600;
       letter-spacing: 0.02em;
     }
 
@@ -28,8 +39,90 @@
       color: #ffffff;
 
       svg {
-        transform: scale(1.1) rotate(-4deg);
+        transform: scale(1.15) rotate(-6deg);
         color: #a78bfa;
+      }
+    }
+  }
+
+  .home-nav {
+    button {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      background: none;
+      border: 1px solid transparent;
+      color: rgba(255, 255, 255, 0.65);
+      font-size: 0.9rem;
+      font-weight: 500;
+      cursor: pointer;
+      padding: 0.5rem 1.1rem;
+      border-radius: 50px;
+      transition: all 0.3s ease;
+
+      svg {
+        font-size: 1.2rem;
+        color: rgba(255, 255, 255, 0.65);
+        transition: transform 0.3s ease, color 0.3s ease;
+      }
+
+      p {
+        margin: 0;
+      }
+
+      &:hover {
+        color: #818cf8;
+        background: rgba(129, 140, 248, 0.08);
+        border-color: rgba(129, 140, 248, 0.2);
+        transform: translateY(-1px);
+
+        svg {
+          color: #818cf8;
+          transform: scale(1.1);
+        }
+      }
+
+      &:active {
+        transform: translateY(0);
+      }
+    }
+  }
+
+  .upload {
+    button {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      background: linear-gradient(135deg, rgba(99, 102, 241, 0.15), rgba(168, 85, 247, 0.15));
+      border: 1px solid rgba(129, 140, 248, 0.45);
+      color: #818cf8;
+      font-size: 0.9rem;
+      font-weight: 500;
+      cursor: pointer;
+      padding: 0.5rem 1.1rem;
+      border-radius: 50px;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 12px rgba(99, 102, 241, 0.1);
+
+      svg {
+        font-size: 1.1rem;
+        transition: transform 0.3s ease;
+      }
+
+      &:hover {
+        background: linear-gradient(135deg, #6366f1, #a855f7);
+        border-color: transparent;
+        color: #ffffff;
+        box-shadow: 0 4px 18px rgba(99, 102, 241, 0.4);
+        transform: translateY(-1.5px);
+
+        svg {
+          transform: rotate(15deg) scale(1.1);
+        }
+      }
+
+      &:active {
+        transform: translateY(0);
       }
     }
   }
@@ -40,13 +133,14 @@
       align-items: center;
       gap: 0.4rem;
       background: none;
-      border: none;
-      color: rgba(255, 255, 255, 0.45);
-      font-size: 0.95rem;
-      font-weight: 400;
+      border: 1px solid transparent;
+      color: rgba(255, 255, 255, 0.55);
+      font-size: 0.9rem;
+      font-weight: 500;
       cursor: pointer;
-      padding: 0;
-      transition: color 0.3s ease, letter-spacing 0.3s ease;
+      padding: 0.5rem 1.1rem;
+      border-radius: 50px;
+      transition: all 0.3s ease;
 
       svg {
         font-size: 1.2rem;
@@ -55,11 +149,17 @@
 
       &:hover {
         color: #f87171;
-        letter-spacing: 0.03em;
+        background: rgba(248, 113, 113, 0.06);
+        border-color: rgba(248, 113, 113, 0.2);
+        transform: translateY(-1px);
 
         svg {
-          transform: translateX(3px);
+          transform: translateX(2px);
         }
+      }
+
+      &:active {
+        transform: translateY(0);
       }
     }
   }

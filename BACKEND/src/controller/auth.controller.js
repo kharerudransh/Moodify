@@ -84,7 +84,7 @@ async function getMe(req, res) {
     const user = await userModel.findById(req.user.id).select("-password");
     if (!user) {
         return res.status(400).json({
-            message: "How are you ??"
+            message: "who are you ??"
         })
     }
     return res.status(200).json({

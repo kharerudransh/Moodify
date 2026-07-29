@@ -1,7 +1,25 @@
 import { useEffect, useRef, useState } from "react";
 import "./FaceExpression.css";
 import { initFaceExpression, detectExpression as runDetection } from "../utils/utils";
+import {useSong} from "../../home/hooks/useSong";   // ✅ default import (curly braces hataye)
 
+const mapEmotionToMood = (emotionString) => {
+  const clean = emotionString.replace(/[^\w\s]/g, "").trim().toLowerCase();
+
+  if (clean.includes("party") || clean.includes("excited") || clean.includes("angry")) {
+    return "party";
+  }
+  if (clean.includes("happy") || clean.includes("neutral")) {
+    return "happy";
+  }
+  if (clean.includes("surprised")) {
+    return "surprised";
+  }
+  if (clean.includes("sad") || clean.includes("fear")) {
+    return "sad";
+  }
+  return "happy";
+};
 
 function FaceExpression() {
   const videoRef = useRef(null);
@@ -13,6 +31,8 @@ function FaceExpression() {
   const [result, setResult] = useState({ emotion: "😐 Neutral", confidence: 0 });
   const [detecting, setDetecting] = useState(false);
   const [countdown, setCountdown] = useState(null);
+
+  const { handlePlayList,setMood } = useSong();   // ✅ setMood bhi le liya
 
   useEffect(() => {
     let cancelled = false;
@@ -39,9 +59,18 @@ function FaceExpression() {
   const handleDetect = async () => {
     if (detecting) return;
     setDetecting(true);
-    const finalResult = await runDetection(videoRef, landmarkerRef, setCountdown);
-    setResult(finalResult);
-    setDetecting(false);
+    try {
+      const finalResult = await runDetection(videoRef, landmarkerRef, setCountdown);
+      setResult(finalResult);
+      const mood = mapEmotionToMood(finalResult.emotion);
+      setMood(mood);                        // ✅ context mein save — Home ab isse read kar payega
+      //await handlePlayList({ mood });
+      await handlePlayList({ mood }); 
+    } catch (err) {
+      console.error("Emotion detection or playlist load error:", err);
+    } finally {
+      setDetecting(false);
+    }
   };
 
   return (

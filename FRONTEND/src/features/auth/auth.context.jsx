@@ -1,5 +1,5 @@
 import { createContext, useContext, useState, useEffect } from "react";
-import { getMe } from "./services/auth.api"; // auth.context.js features/auth/ mein hai, to ye path sahi hoga
+import { getMe } from "./services/auth.api";
 
 export const AuthContext = createContext();
 

@@ -58,22 +58,22 @@ export const classifyEmotion = (shapes, faceDetected) => {
   const sneer = Math.max(get("noseSneerLeft"), get("noseSneerRight"));
 
   if (smile > 0.42 && jaw < 0.08 && frown < 0.10) {
-    return { emotion: "😊 Happy", confidence: Math.min(100, Math.round(smile * 170)) };
+    return { emotion: "Happy ", confidence: Math.min(100, Math.round(smile * 170)) };
   }
   if (smile > 0.32 && jaw > 0.10) {
-    return { emotion: "🥳 Excited", confidence: Math.min(100, Math.round((smile + jaw) * 120)) };
+    return { emotion: "Party", confidence: Math.min(100, Math.round((smile + jaw) * 120)) };
   }
   if (jaw > 0.16 && browInner > 0.18 && browOuter > 0.12) {
-    return { emotion: "😮 Surprised", confidence: Math.min(100, Math.round((jaw + browInner + browOuter) * 100)) };
+    return { emotion: "Surprised ", confidence: Math.min(100, Math.round((jaw + browInner + browOuter) * 100)) };
   }
   if (browDown > 0.30 && (press > 0.10 || sneer > 0.10)) {
-    return { emotion: "😠 Angry", confidence: Math.min(100, Math.round((browDown + press + sneer) * 100)) };
+    return { emotion: "Angry", confidence: Math.min(100, Math.round((browDown + press + sneer) * 100)) };
   }
   if (frown > 0.18 && shrug > 0.12) {
-    return { emotion: "😢 Sad", confidence: Math.min(100, Math.round((frown + shrug) * 180)) };
+    return { emotion: "Sad", confidence: Math.min(100, Math.round((frown + shrug) * 180)) };
   }
   if (frown > 0.08 && smile < 0.12 && jaw < 0.08) {
-    return { emotion: "😕 A Little Sad", confidence: Math.min(100, Math.round(frown * 250)) };
+    return { emotion: "Sad", confidence: Math.min(100, Math.round(frown * 250)) };
   }
   if (eyeWide > 0.18 && browInner > 0.18 && jaw > 0.08) {
     return { emotion: "😨 Fear", confidence: Math.min(100, Math.round((eyeWide + browInner + jaw) * 100)) };
@@ -87,7 +87,7 @@ export const classifyEmotion = (shapes, faceDetected) => {
     return { emotion: "😐 Neutral", confidence: 95 };
   }
 
-  return { emotion: "😕 A Little Sad", confidence: 55 };
+  return { emotion: "Sad", confidence: 55 };
 };
 
 // ---------- Detect: countdown + 30-frame voting ----------

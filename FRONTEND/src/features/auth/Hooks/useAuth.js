@@ -3,10 +3,11 @@ import {AuthContext} from "../auth.context";
 import { useNavigate } from "react-router";
 import{login,register,getMe,logout} from "../services/auth.api";
 import { toast } from "react-toastify";
-
+import { useSong } from "../../home/hooks/useSong";
 
 export const useAuth=()=>{
     const context=useContext(AuthContext);
+    const {playList,setPlayList}=useSong();
     const {user,setUser,loading,setLoading}=context;
     const navigate=useNavigate();
     async function handleRegister({name, username,email,password}){
@@ -43,6 +44,7 @@ export const useAuth=()=>{
         try {
             await logout();
             setUser(null);
+            setPlayList([]);
             navigate("/login");
         } catch (error) {
             console.log("Error in handleLogout:", error);
