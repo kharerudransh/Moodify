@@ -1,6 +1,6 @@
 import { createBrowserRouter } from "react-router";
-import Register from "./features/auth/pages/register";
-import Login from "./features/auth/pages/login";
+import Register from "./features/auth/pages/Register";
+import Login from "./features/auth/pages/Login";
 import Protected from "./features/auth/component/Protected";
 import FaceExpression from "./features/expression/component/FaceExpression";
 import Layout from "./features/shared/component/Layout";
